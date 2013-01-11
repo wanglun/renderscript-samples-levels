@@ -80,4 +80,6 @@ Java_com_android_rs_levels_LevelsJniActivity_jniFilter( JNIEnv* env,
 	mOutPixels[i] = ((int)r) + (((int)g) << 8) + (((int)b) << 16)
 			+ (mInPixels[i] & 0xff000000);
     }
+    (*env)->ReleaseIntArrayElements(env, InPixels, mInPixels, 0);
+    (*env)->ReleaseIntArrayElements(env, OutPixels, mOutPixels, 0);
 }
